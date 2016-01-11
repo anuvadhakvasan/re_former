@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <h1> edit the user details here!</h1>
+<body>
+    
+
+   <%= form_for @user  do |f| %>
+
+<ol>
+  <% @user.errors.full_messages.each do |error| %>
+  <li><%= error %></li>
+  <% end %>
+</ol>   
+      <%= f.label(:username, "your new username:") %>
+      <%= f.text_field(:username) %>
+      <br>
+      <%= f.label(:email, "your new email:") %>
+      <%= f.text_field(:email) %>
+      <br>
+      <%= f.label(:password, "your new password:") %>
+      <%= f.password_field(:password) %>
+      <br>
+      <%= f.submit("submit edited details") %>
+    <% end %>
+
+</body>
+</html>

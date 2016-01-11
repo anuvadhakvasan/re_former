@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <h1> create a user here!</h1>
+<body>
+    
+<!--<form accept-charset="UTF-8"method="post"action="/users">-->
+<!--    <input type="hidden" name="authenticity_token" -->
+<!--         value="<%form_authenticity_token %>">-->
+<!--    <div>username: <input type="text"name="user[username]" ></div><br>-->
+<!--    <div>email: <input type="text" name="user[email]"></div><br>-->
+<!--    <div>password: <input type="password" name="user[password]"></div><br>-->
+<!--    <div><input type="submit" value="Submit"></div>-->
+<!--</form>-->    
+    
+
+   <!--<%= form_tag("/users", method: "post") do %>-->
+   
+   <!--   <%= label_tag(:username, "username:") %>-->
+   <!--   <%= text_field_tag(:username) %>-->
+      
+   <!--   <%= label_tag(:email, "email:") %>-->
+   <!--   <%= text_field_tag(:email) %>-->
+      
+   <!--   <%= label_tag(:password, "password:") %>-->
+   <!--   <%= password_field_tag(:password) %>-->
+      
+   <!--   <%= submit_tag("Submit") %>-->
+   <!-- <% end %>-->
+    
+   <%= form_for @user  do |f| %>
+
+<ol>
+  <% @user.errors.full_messages.each do |error| %>
+  <li><%= error %></li>
+  <% end %>
+</ol>
+
+      <%= f.label(:username, "your username here:") %>
+      <%= f.text_field(:username) %>
+      <br>
+      <%= f.label(:email, "your email here:") %>
+      <%= f.text_field(:email) %>
+      <br>
+      <%= f.label(:password, "your password here:") %>
+      <%= f.password_field(:password) %>
+      <br>
+      <%= f.submit("create user") %>
+    <% end %>
+
+</body>
+</html>
